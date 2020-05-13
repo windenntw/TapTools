@@ -21,9 +21,11 @@ debian/taptools.debhelper.log
 debian/taptools.substvars
 debian/taptools/
 depcomp
+dsk2tap
 install-sh
 missing
 mkp3fs
+sna2dsk
 sna2tap
 specform
 stamp-h1
