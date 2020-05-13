@@ -1,6 +1,7 @@
 *~
 *.swp
 *.o
+INSTALL
 Makefile
 Makefile.in
 autom4te.cache/
@@ -20,6 +21,8 @@ debian/taptools.debhelper.log
 debian/taptools.substvars
 debian/taptools/
 depcomp
+install-sh
+missing
 mkp3fs
 sna2tap
 specform
