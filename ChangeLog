@@ -1,3 +1,30 @@
+2011-03-27 John Elliott
+
+	* sna2dsk: New program created: wraps a .SNA snapshot in an 
+	 auto-booting +3 diskette image.
+
+2010-05-03 John Elliott
+
+	* taptools-1.0.7 released.
+
+	* dsk2tap: Tweaked the BASIC loader so that if it runs to completion,
+	 the program stops with 9 STOP rather than whatever error the +3DOS
+	 loader came up with.
+
+2010-04-17 John Elliott
+
+	* taptools-1.0.6 released.
+
+	* dsk2tap: Naively converts an unprotected .DSK to a .TAP file which,
+	 when run, formats a floppy and creates a copy of the original disc.
+
+2010-01-24 John Elliott
+
+	* taptools-1.0.5 released.
+
+	* tapcat: Added a -H option to append headerless blocks to the
+	 tape file.
+
 2008-02-09 John Elliott
 
 	* taptools-1.0.4 released.

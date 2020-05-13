@@ -146,8 +146,10 @@ int main(int argc, char **argv)
 
 		if (fixing)
 		{
-			fread(header, 1, 128, fileSrc);
-			if (ferror(fileSrc)) fail(nameSrc);
+			if (fread(header, 1, 128, fileSrc) < 128)
+			{
+				fail(nameSrc);
+			}
 	                fseek(fileSrc, 0, SEEK_SET);
 		}
 

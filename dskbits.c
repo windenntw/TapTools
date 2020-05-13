@@ -43,6 +43,16 @@ dsk_err_t dsk_creat(DSK_PDRIVER *self, const char *name, const char *type,
 	return DSK_ERR_OK;
 }
 
+dsk_err_t dsk_open(DSK_PDRIVER *self, const char *name, const char *type,
+		const char *compress)
+{
+	FILE *fp = fopen(name, "rb");
+	*self = fp;
+	if (!fp) return DSK_ERR_SYSERR;
+	return DSK_ERR_OK;
+}
+
+
 dsk_err_t dg_pcwgeom(DSK_GEOMETRY *dg, const unsigned char *bootsec)
 {
 	dg->dg_sectors = bootsec[3];
@@ -92,5 +102,35 @@ dsk_err_t dsk_close(DSK_PDRIVER *fp)
 void dsk_reportfunc_set(void *f1, void *f2) { }
 void dsk_report(const char *s) { }
 void dsk_report_end() { }
+
+dsk_err_t dg_stformat(DSK_GEOMETRY *self, dsk_format_t *fmt,
+			dsk_cchar_t *s1, dsk_cchar_t *s2)
+{
+	return DSK_ERR_BADPTR;
+}
+
+dsk_err_t dsk_set_retry(DSK_PDRIVER fp, int tries) { return DSK_ERR_OK; }
+dsk_err_t dsk_set_option(DSK_PDRIVER fp, 
+		const char *opt, int value) { return DSK_ERR_OK; }
+
+dsk_err_t dsk_getgeom(DSK_PDRIVER fp, DSK_GEOMETRY *dg)
+{
+	return DSK_ERR_BADPTR;
+}
+
+
+unsigned char dsk_get_psh(size_t secsize)
+{
+        unsigned char psh;
+
+        for (psh = 0; secsize > 128; secsize /= 2) psh++;
+        return psh;
+}
+
+dsk_err_t dg_stdformat(DSK_GEOMETRY *self, dsk_format_t formatid,
+	dsk_cchar_t *name, dsk_cchar_t *desc)
+{
+	return DSK_ERR_BADPTR;
+}
 
 #endif

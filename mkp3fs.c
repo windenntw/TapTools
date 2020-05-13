@@ -171,8 +171,8 @@ void syntax(const char *av0)
 {
 	fprintf(stderr, "Syntax: %s {options} dskfile file file ...\n\n"
 			"Options are:\n"
-			"  -720: Write a 720k image (default)\n"
-			"  -180: Write a 180k image\n"
+			"  -180: Write a 180k image (default)\n"
+			"  -720: Write a 720k image\n"
 			"  -cpmonly: Write a disc only usable by +3DOS\n"
 			"  -dosonly: Write a disc only usable by PCDOS\n"
 			"  -type type: Output file type (default=dsk)\n"

@@ -34,9 +34,15 @@
 
 byte header1[128], header2[128];
 int zxtflag = 0;
+int noheader = 0;
 long taplen;
 unsigned int nStartAddr = 0;
 
+#ifdef __PACIFIC__
+#define AV0 "TAPCAT"
+#else
+#define AV0 argv[0]
+#endif
 
 
 
@@ -134,13 +140,16 @@ void addblk(FILE *f, char *name)
 
 	header[20] = m & 0xFF; /* Header block generated & checksummed */
 
-	if (fwrite(header,1,21,f) < 21)
+	if (!noheader)
 	{
-		fprintf(stderr,"Header write failed for %s.\n",name);
-		fclose(fp);
-		return;
+		if (fwrite(header,1,21,f) < 21)
+		{
+			fprintf(stderr,"Header write failed for %s.\n",name);
+			fclose(fp);
+			return;
+		}
+		taplen += 21;
 	}
-	taplen += 21;
 
 /* Header written, do the data */
 
@@ -192,7 +201,7 @@ void addblk(FILE *f, char *name)
 
 void help(char *name)
 {
-	fprintf(stderr,"Syntax: %s { -N } { -a addr } tapfile member member ... \n", name);
+	fprintf(stderr,"Syntax: %s { -N } { -H } { -a addr } tapfile member member ... \n", name);
 	exit(1);
 }
 
@@ -213,6 +222,11 @@ int main(int argc, char **argv)
 			removing = 1;
 			++argno;
 		}
+		else if (argv[argno][1] == 'H')
+		{
+			noheader = 1;
+			++argno;
+		}
 		else if (argv[argno][1] == 'a')
 		{
 			++argno;
@@ -224,13 +238,13 @@ int main(int argc, char **argv)
 		}
 		else
 		{
-			help(argv[0]);
+			help(AV0);
 		}
 	}
 
 	if ((argno + 1) >= argc)
 	{
-		help(argv[0]);
+		help(AV0);
 	}
 
 	tname=argv[argno++];
