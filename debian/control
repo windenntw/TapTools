@@ -1,0 +1,17 @@
+Source: taptools
+Section: otherosfs
+Priority: optional
+Maintainer: Matt Westcott <matt@west.co.tt>
+Standards-Version: 4.0.0
+Build-Depends: autoconf, automake, libdsk4-dev
+Rules-Requires-Root: no
+Vcs-Git: https://github.com/windenntw/TapTools
+Vcs-browser: https://github.com/windenntw/TapTools
+Homepage: http://www.seasip.info/ZX/unix.html
+
+Package: taptools
+Architecture: any
+Depends: debconf,libdsk4
+Description: Description 
+Tool to fiddle with the .TAP files used by ZX Spectrum emulators like RealSpectrum, Z80 and many others.
+
