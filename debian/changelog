@@ -2,10 +2,10 @@ taptools (1.0.8) UNRELEASED; urgency=medium
 
   * Update to 1.0.8.
 
- -- winden <windenntw@gmail.com>  Wed, 13 May 2020 20:07:50 +0200
+ -- John Elliott <seasip.webmaster@gmail.com>  Wed, 13 May 2020 20:07:50 +0200
 
 taptools (1.0.4) UNRELEASED; urgency=medium
 
   * Initial debian package.
 
- -- winden <windenntw@gmail.com>  Wed, 13 May 2020 20:06:50 +0200
+ -- John Elliott <seasip.webmaster@gmail.com>  Wed, 13 May 2020 20:06:50 +0200

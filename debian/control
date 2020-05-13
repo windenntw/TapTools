@@ -1,7 +1,7 @@
 Source: taptools
 Section: otherosfs
 Priority: optional
-Maintainer: winden <windenntw@gmail.com>
+Maintainer: John Elliott <seasip.webmaster@gmail.com>
 Standards-Version: 4.0.0
 Build-Depends: autoconf, automake, libdsk4-dev
 Rules-Requires-Root: no
